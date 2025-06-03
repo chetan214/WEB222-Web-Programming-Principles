@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Chetan Arora" />
+    <title>Request a New Artist-BollywoodBeats</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="home-nav">
+        <a href="index.html">Home</a>
+      </nav>
+      <h1>Request a New Artist</h1>
+    </header>
+    <hr />
+    <main>
+      <form id="request-artist-form" action="https://httpbin.org/post" method="post">
+        <label for="artist-name">Artist's Name:</label>
+        <input
+          type="text"
+          id="artist-name"
+          name="artistName"
+          placeholder="Please type the artist name..."
+          required
+        />
+
+        <label for="genre">Music Genre:</label>
+        <input
+          list="genres"
+          id="genre"
+          name="genre"
+          placeholder="Please select the genre of music..."
+          required
+        />
+        <datalist id="genres">
+          <option value="Hip-Hop"></option>
+          <option value="Pop"></option>
+          <option value="Rock"></option>
+          <option value="Jazz"></option>
+          <option value="Classical"></option>
+          <option value="Country"></option>
+          <option value="Reggae"></option>
+          <option value="Blues"></option>
+          <option value="Electronic"></option>
+          <option value="Metal"></option>
+        </datalist>
+
+        <label for="social-media">Social Media URLs:</label>
+        <input
+          type="url"
+          id="social-media"
+          name="socialMediaUrls"
+          placeholder="Please enter social media url/s..."
+          required
+        />
+
+        <label for="song-video">Example Song/Video URLs:</label>
+        <div id="song-video-container">
+          <input
+            type="url"
+            id="song-video"
+            name="songVideoUrls"
+            placeholder="Please enter any song or video url/s..."
+            required
+          />
+        </div>
+        <button type="button" class="url-button" onclick="addSongVideoInput()">Add URL</button>
+        <div class="explicit-check">
+          <label for="explicit">Contains explicit lyrics:</label>
+          <input type="checkbox" id="explicit" name="explicit" />
+        </div>
+        <label for="description">Why should we add this artist?</label>
+        <textarea
+          id="description"
+          placeholder="Type here..."
+          name="description"
+          rows="4"
+        ></textarea>
+
+        <button class="submit-button" type="submit">SUBMIT</button>
+      </form>
+    </main>
+    <hr />
+    <footer>
+      <p>
+        <small>&copy; <time datetime="2024">2024</time> Chetan Arora.</small>
+      </p>
+    </footer>
+
+    <script>
+      function addSongVideoInput() {
+        const container = document.getElementById("song-video-container");
+        const input = document.createElement("input");
+        input.type = "url";
+        input.name = "songVideoUrls";
+        input.required = false;
+        input.placeholder = "Please enter any song or video url/s...";
+        container.appendChild(input);
+      }
+    </script>
+  </body>
+</html>
